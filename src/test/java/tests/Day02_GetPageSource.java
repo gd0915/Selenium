@@ -41,10 +41,17 @@ public class Day02_GetPageSource {
         driver.quit();
 
     }
+
+    //getPageSource() returns page source code as a string
+    //We might use this to verify if a certain text exist in the entire page
+    //Note that pageSource is not used a lot to do assertions
+    //Because it is too general and can lead false result
+
 }
 /*
 Added jUnit dependency
 -Most basic Java testing framework
+-Testers use JUnit to create testing framework and organize the test scripts
 -JUnit is an API to create testing framework; it is not a library
-
+-Developers also uses JUnit to run unit tests
  */

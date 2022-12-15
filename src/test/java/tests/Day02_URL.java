@@ -49,9 +49,6 @@ public class Day02_URL {
         -If that is a bug, then talk to the dev and let them fix the bug.
         -After the fix, we retest. When test cases passes we upload to JIRA.
 
-
-
-        -
          */
     }
 }
