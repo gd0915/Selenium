@@ -50,3 +50,9 @@ public class Day05_dynamic_xpath {
 
     }
 }
+/*
+Dynamic elements can be used to locate web elements through weg page's HTML structure. (bu kismi dinle day 05 ilk oturumun sonu)
+
+ */
+
+
