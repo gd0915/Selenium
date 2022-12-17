@@ -43,7 +43,7 @@ public class Day05_dynamic_xpath {
 
 //        Verify if "Password" text is displayed on the page
 //        3. XPATH = //*[contains(text(),'PARTIAL OR FULL TEXT OF THE ELEMENT');
-        WebElement passwordText1 = driver.findElement(By.xpath("//*[contains(text(),'Passw')]"));//accept partial text
+        WebElement passwordText1 = driver.findElement(By.xpath("//*[contains(text(),'Passw')]")); //accept partial text
         Assert.assertTrue(passwordText1.isDisplayed());
 
 

@@ -6,8 +6,18 @@ import org.junit.Test;
 public class Day05_JavaFaker {
 
     /*
-    TEST DATA : username, password, URL, test environment, city, ssn,...
-    Where do you get
+   TEST DATA : username, password, URL, test environment, city, ssn,...
+    -Where do you get your test data?
+    -BA-Business Analyst(Writes the acceptance criteria(AC))
+    -Test Lead
+    -Manual Tester
+    -Tech Lead(Team Lead)
+    -Developer
+    -We can retrieve data from the database
+    -We can retrieve data from API
+    -Documentation. For example swagger doc can be used for API
+    -If we need mock data(fake data), we can use the Java Faker
+    -NOTE: Java Faker generates data randomly.
      */
     @Test
     public void javaFakerTest(){

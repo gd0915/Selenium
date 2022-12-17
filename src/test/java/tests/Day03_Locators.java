@@ -76,7 +76,6 @@ public class Day03_Locators {
 //        driver.findElement(By.xpath("//i[@class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']")).click();
 
 //            driver.findElement(By.linkText("Logout")).click();
-//
 //            System.out.println("8");
 
             driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/header/div[1]/div[2]/ul/li/ul[1]/li[4]/a")).click();

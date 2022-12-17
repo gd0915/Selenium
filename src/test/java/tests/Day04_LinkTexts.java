@@ -26,10 +26,11 @@ public class Day04_LinkTexts {
     @Test
     public void LMSPage() {
         driver.get("https://techproeducation.com/");
+
         //Click on LMS LOGIN
         //LMS LOGIN IS A LINK
         //TEXT OF THAT LINK "LMS LOGIN"
-        driver.findElement(By.linkText("LMS LOGIN")).click();
+        driver.findElement(By.linkText("LMS LOGIN")).click();//linkText() method is case sensitive
 
         //Verify lms page is visible
         String expectedURL = "https://lms.techproeducation.com/";
@@ -44,15 +45,12 @@ public class Day04_LinkTexts {
         driver.findElement(By.partialLinkText("LMS L")).click();//Case sensitive
         //ALTERNATIVELY WE CAN LOCATE A CORE ELEMENT ON LMS PAGE AND CHECK IF THAT ELEMENT IS DISPLAYED ON THE PAGE
         WebElement loginElement = driver.findElement(By.linkText("Login/Register"));
-        Assert.assertTrue(loginElement.isDisplayed());//isDisplayed() method returns TRUE if element is on the page. ==>PASS
-                                                      //isDisplayed() method returns FALSE if element is NOT on the page.==>FAIL
+        Assert.assertTrue(loginElement.isDisplayed());//isDisplayed() method returns TRUE if element is displayed on the page. ==>PASS
+                                                      //isDisplayed() method returns FALSE if element is NOT displayed on the page.==>FAIL
 
         //Assert.assertTrue(driver.findElement(By.linkText("Login/Register")).isDisplayed();//alternative way to type assertion code
     }
-    @After
-    public void tearDown(){
-        driver.quit();
-    }
+
 
 }
 /*

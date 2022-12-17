@@ -27,12 +27,13 @@ public class Day03_Checkbox {
         driver.get("https://testcenter.techproeducation.com/index.php?page=checkboxes");
     }
     @Test
-    public void checkboxTest() {
+    public void checkboxTest() throws InterruptedException {
         //Locating checkbox 1 and checkbox2
         WebElement checkbox1 = driver.findElement(By.id("box1"));
         WebElement checkbox2 = driver.findElement(By.id("box2"));
 
 //        Click on the checkbox 1 if it is NOT already selected
+        Thread.sleep(2000);//Hard wait is not recommended; this is for us to see the process, and throws exception to the method signature
         if (!checkbox1.isSelected()){//isSelected() returns true id checkbox is checked, returns false if checkbox is not checked
             checkbox1.click();
         }
