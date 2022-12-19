@@ -11,12 +11,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import java.sql.SQLOutput;
 import java.time.Duration;
-import java.util.Collections;
 import java.util.List;
 
-public class amazonDropdown {
+public class AmazonDropdown {
 //    Create A Class: AmazonDropdown
 //    Create A Method dropdownTest
 //    Go to https://www.amazon.com/

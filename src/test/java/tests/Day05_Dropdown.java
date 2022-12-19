@@ -113,7 +113,7 @@ public class Day05_Dropdown {
 
  /*
     -What is a dropdown?
-        ---Dropdown is a webelement. It has list of options.
+        ---Dropdown is a web-element. It has list of options.
     -How do you handle dropdown? What do you do to automate dropdown?
         ---Dropdowns are created using Select class. So we first locate the dropdown element, then use select class
         to interact with dropdown elements.
