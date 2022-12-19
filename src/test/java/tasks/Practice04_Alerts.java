@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 
-public class Practice04 extends TestBase {
+public class Practice04_Alerts extends TestBase {
     //    go to url :http://demo.automationtesting.in/Alerts.html
     //    click  "Alert with OK" and click 'click the button to display an alert box:'
     //    accept Alert(I am an alert box!) and print alert on console
