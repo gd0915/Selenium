@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class GoogleSearchTest {
+public class Test02_GoogleSearchTest {
 
     WebDriver driver;
     @Before
@@ -41,7 +41,7 @@ public class GoogleSearchTest {
 
     @After
     public void tearDown(){
-        driver.quit();
+       driver.quit();
     }
 
 

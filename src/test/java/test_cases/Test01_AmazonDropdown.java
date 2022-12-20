@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
-public class AmazonDropdown {
+public class Test01_AmazonDropdown {
 //    Create A Class: AmazonDropdown
 //    Create A Method dropdownTest
 //    Go to https://www.amazon.com/

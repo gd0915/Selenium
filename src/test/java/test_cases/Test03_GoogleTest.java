@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class GoogleTest {
+public class Test03_GoogleTest {
 
     WebDriver driver;
     @Before

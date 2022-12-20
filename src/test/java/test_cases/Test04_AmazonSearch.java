@@ -1,18 +1,14 @@
 package test_cases;
 
-import net.bytebuddy.implementation.bytecode.Division;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.w3c.dom.html.HTMLDivElement;
 import utilities.TestBase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class AmazonSearch extends TestBase {
+public class Test04_AmazonSearch extends TestBase {
     /*
     Create a new class: AmazonSearch
        //TC01_As user I want to know how many item are there on amazon in the first page after I search “porcelain teapot”?
