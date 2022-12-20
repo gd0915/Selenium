@@ -1,10 +1,12 @@
 package tasks;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -23,19 +25,20 @@ public class Practice02 {
 
     @Test
     public void closePopUps() throws InterruptedException {
-        Thread.sleep(3000);
-        //locating and close first pop-up
-       // driver.findElement(By.xpath("//*[text()='Daha Sonra']")).click();
-        driver.findElement(By.xpath("//*[@id='btn-later']")).click();
+       //locating and close first pop-up
+        Thread.sleep(2000);
+        driver.switchTo().frame(driver.findElement(By.xpath("/html/body/iframe[9]")));
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//div[@id='btn-later']")).click();
 
         //go to "spor arena" at the top of the page
-        driver.findElement(By.xpath("(//a[text()='SPOR ARENA'])[2]")).click();
-
-        //locating and close second pop-up
-        driver.findElement(By.xpath("//*[@id='intclose']")).click();
-
-        //click on the team sign you like
-        driver.findElement(By.xpath("//*[@id='top-team-section-id']/ul/li[3]/a/div/img")).click();
+//        driver.findElement(By.xpath("(//a[text()='SPOR ARENA'])[2]")).click();
+//
+//        //locating and close second pop-up
+//        driver.findElement(By.xpath("//*[@id='intclose']")).click();
+//
+//        //click on the team sign you like
+//        driver.findElement(By.xpath("//*[@id='top-team-section-id']/ul/li[3]/a/div/img")).click();
 
 
 
