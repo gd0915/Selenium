@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
-public class Day09_DragAndDrop extends TestBase {
+public class Day09_Actions4 extends TestBase {
 
     @Test
     public void dragAndDropTest(){
@@ -66,6 +66,21 @@ public class Day09_DragAndDrop extends TestBase {
                 clickAndHold(source).
                 moveByOffset(160, 30).
                 build().perform();
+    }
+
+    @Test
+    public void dragAndDropBy(){
+        driver.get("https://jqueryui.com/droppable/");
+        //      And user moves the target element(Drag me to my target) in to  destination(Drop here)
+        //      Below elements are in the iframes so switch to iframe first
+        driver.switchTo().frame(0);//switching to the first iframe
+        WebElement source = driver.findElement(By.id("draggable"));
+        WebElement target = driver.findElement(By.id("droppable"));
+        //      user Actions class to move source into target
+        Actions actions = new Actions(driver);
+        actions
+                .dragAndDropBy(source,160,30)
+                .perform();
     }
 
 }
