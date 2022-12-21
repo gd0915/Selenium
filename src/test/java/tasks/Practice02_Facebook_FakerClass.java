@@ -42,11 +42,16 @@ public class Practice02_Facebook_FakerClass {
        actions.click(firstNameBox).
                sendKeys(faker.name().firstName())
                .sendKeys(Keys.TAB).sendKeys(faker.name().lastName())
-               .sendKeys(Keys.TAB).sendKeys(faker.internet().emailAddress())
+               .sendKeys(Keys.TAB).sendKeys(faker.phoneNumber().cellPhone())
                .sendKeys(Keys.TAB).sendKeys(faker.internet().password())
-               .sendKeys(Keys.TAB).sendKeys("Jan")
-               .sendKeys(Keys.TAB).sendKeys("1")
-               .sendKeys(Keys.TAB).sendKeys("1999")
+               .sendKeys(Keys.TAB)
+               .sendKeys(Keys.TAB).sendKeys("Dec")
+               .sendKeys(Keys.TAB).sendKeys("10")
+               .sendKeys(Keys.TAB).sendKeys("2000")
+               .sendKeys(Keys.TAB)
+               .sendKeys(Keys.TAB)
+               .sendKeys(Keys.ARROW_DOWN)
+               .sendKeys(Keys.ARROW_DOWN)
                .sendKeys(Keys.ARROW_DOWN)
                .sendKeys(Keys.TAB)
                .sendKeys(Keys.TAB)
@@ -55,9 +60,8 @@ public class Practice02_Facebook_FakerClass {
                .sendKeys(Keys.TAB)
                .sendKeys(Keys.TAB)
                .sendKeys(Keys.TAB)
-               .sendKeys(Keys.TAB)
-               .sendKeys(Keys.TAB)
                .sendKeys(Keys.ENTER)
+               .build()
                .perform();
                 Thread.sleep(5000);
     }
