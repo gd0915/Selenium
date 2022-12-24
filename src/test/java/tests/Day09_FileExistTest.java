@@ -19,7 +19,7 @@ public class Day09_FileExistTest extends TestBase {
         String userDIR= System.getProperty("user.dir");       //=>gives the path of the current project folder
         System.out.println(userDIR);                          ///Users/techproed/IdeaProjects/SeleniumNewProject
 
-        String userHOME=System.getProperty("user.home");      //=>gives you the user folder
+        String userHOME=System.getProperty("user.home");      //=>gives you the user folder ===>>> returns the dynamic path
         System.out.println(userHOME); ///Users/techproed
 
 
