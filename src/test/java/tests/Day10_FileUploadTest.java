@@ -50,4 +50,11 @@ public class Day10_FileUploadTest extends TestBase {
     (This will automatically upload the file.)
     Path of the file should be dynamic.
      */
+
+    /*
+    LIMITATION:
+    Selenium has limitation automation DESKTOP APPS
+    For example, we can not find path of files, or verify if file exists on out machines with selenum
+    Instead we use java File libraries
+     */
 }
