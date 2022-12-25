@@ -29,7 +29,7 @@ public class Day10_FileUploadTest extends TestBase {
 
         // 2. select a file from your computer
         String userHOME=System.getProperty("user.home");
-        String pathOfFile = userHOME + "/Downloads/logo.jpeg";
+        String pathOfFile = userHOME + "\\Downloads\\logo.jpeg";
 
         //Sending the path of file that I want to upload
         //We can use sendKeys because of the input type file combination(this is the special case for input type file cases without clicking the button)
