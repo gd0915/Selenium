@@ -21,11 +21,12 @@ public class Day09_Cookies extends TestBase {
     //6. Delete all the cookies
 
     @Test
-    public void cookieTest(){
+    public void cookieTest() throws InterruptedException {
         //-Go to amazon  and automate the tasks:
         driver.get("https://www.amazon.com");
 
         //1. Find the total number of cookies
+        Thread.sleep(2000);
         Set<Cookie> allCookies = driver.manage().getCookies();
         int numOfCookies = allCookies.size();
         System.out.println("Number of Cookies : " + numOfCookies);
@@ -33,13 +34,13 @@ public class Day09_Cookies extends TestBase {
         //2. Print all the cookies
         for(Cookie eachCookie : allCookies){
             System.out.println("Cookie ==>>> " + eachCookie);
-            System.out.println("Cookie Value ==>>> " + eachCookie);
+            System.out.println("Cookie Value ==>>> " + eachCookie.getValue());
             System.out.println("Cookie Name ==>>> " + eachCookie.getName());
         }
 
         //3. Get the cookies by their name
         System.out.println("Cookie Named : " + driver.manage().getCookieNamed("i18n-prefs"));//this will return  value of the cookie (skin ==>>> name of cookie)
-                                                                                       //entering name and getting value
+                                                                                             //entering cookie name and getting th entire cookie
 
         //4. Add new cookie
         Cookie newCookie = new Cookie("my-favorite-cookie", "apple-pie");
@@ -52,8 +53,9 @@ public class Day09_Cookies extends TestBase {
         int lastNumberOfCookies = driver.manage().getCookies().size();
         System.out.println("Last Number Of Cookies ==>>> " + lastNumberOfCookies);
 
-        //6. Delete all of the cookies
+        //6. Delete all the cookies
         driver.manage().deleteAllCookies();
+        Thread.sleep(2000);
         int finalNumberOfCookies = driver.manage().getCookies().size();
         System.out.println("Final Number of Cookies ==>>> " + finalNumberOfCookies);
 

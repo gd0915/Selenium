@@ -17,17 +17,17 @@ public class Day09_FileExistTest extends TestBase {
     public void isExist(){
 
         String userDIR= System.getProperty("user.dir");       //=>gives the path of the current project folder
-        System.out.println(userDIR);                          ///Users/techproed/IdeaProjects/SeleniumNewProject
+        System.out.println(userDIR);                          // /Users/techproed/IdeaProjects/SeleniumNewProject
 
         String userHOME=System.getProperty("user.home");      //=>gives you the user folder ===>>> returns the dynamic path
-        System.out.println(userHOME); ///Users/techproed
+        System.out.println(userHOME);                         // /Users/techproed
 
-
-//        Pick a file on your desktop
-//        And verify if that file exists on your computer or not
-        String pathOfFile = userHOME + "/Downloads/logo.jpeg";         //WRITING THE PATH DYNAMICALLY SO THIS PATH CAN WORK ON OTHER LAPTOPS
+        //        Pick a file on your desktop
+        //        And verify if that file exists on your computer or not
+        String pathOfFile = userHOME + "\\Downloads\\logo.jpeg";    //WRITING THE PATH DYNAMICALLY SO THIS PATH CAN WORK ON OTHER LAPTOPS
+      //String pathOfFile = userHOME + "/Downloads/logo.jpeg"; ===>>> MAC
         boolean isExist = Files.exists(Paths.get(pathOfFile));      //returns TRUE if file exists. FALSE if file doesn't exists
-        Assert.assertTrue(isExist);
+        Assert.assertTrue(isExist); //Passes if file exist, Fails if files doesn't exist
     }
 
 }

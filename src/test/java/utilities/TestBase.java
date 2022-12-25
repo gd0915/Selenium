@@ -1,15 +1,18 @@
 package utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 
 public abstract class TestBase {
     protected static WebDriver driver;
@@ -24,7 +27,7 @@ public abstract class TestBase {
     @After
     public void tearDown(){
 
-       // driver.quit();
+       driver.quit();
     }
 
     //    AUTO COMPLETE REUSABLE METHOD
@@ -42,6 +45,20 @@ public abstract class TestBase {
         driver.findElement(By.xpath("//input[@type='button']")).click();//click on submit button
         //Verifying if result contains the option that I selected DYNAMICALLY using PARAMETER 2
         Assert.assertTrue(driver.findElement(By.id("result")).getText().contains(textFromList));
+    }
+
+    // TAKE A SCREENSHOT OF ENTIRE PAGE WITH THIS REUSABLE METHOD
+    public void takeScreenshotOfPage() throws IOException {
+        // 1.Take screenshot using getScreenShotAs() method and TakeScreenshot API-coming from Selenium
+        File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+        // 2. Save the screenshot in a path and save with dynamic name
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()); //getting  current local date and time with this format
+
+        String path = System.getProperty("user.dir")+ "/test-output/Screenshots/"+currentTime+".png";//Where we save the image
+                        //This is the project
+
+        FileUtils.copyFile(image,new File(path)); //We copy the image in to the path in the second parameter
     }
 
 
