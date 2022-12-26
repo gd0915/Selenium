@@ -27,7 +27,7 @@ public abstract class TestBase {
     @After
     public void tearDown(){
 
-       driver.quit();
+      // driver.quit();
     }
 
     //    AUTO COMPLETE REUSABLE METHOD
@@ -35,14 +35,19 @@ public abstract class TestBase {
     //    NOTE: THIS REUSABLE METHOD DESIGNED FOR OUR CURRENT PROJECT. THIS MAY NOT WORK FOR NEW PROJECTS, BUT CAN BE MODIFIED AND USED FOR THAT NEW PROJECT
     //    NOTE: YOU WILL SEE THIS KIND OF REUSABLE METHOD THAT IS SPECIFIC TO YOUR OWN PROJECT
     //    THE POINT OF REUSABLE METHOD IS : WRITE ONCE USE MULTIPLE TIMES TO SAVE TIME AND SHORT TEST CLASS
-    public static void searchAndSelectFromList(String keyword, String textFromList){
-
+    //    Create a reusable method takes care of the repetitions
+    public static void searchAndSelectFromList(String keyword, String textFromList) throws InterruptedException {
+        // searchAndSelectFromList("uni", "United Kingdom");
+        Thread.sleep(2000);//putting wait to see steps slower
         //Sending a KEYWORD DYNAMICALLY using PARAMETER 1
         driver.findElement(By.id("myCountry")).sendKeys(keyword);//uni
+        Thread.sleep(2000);
         //Selecting an option from the list DYNAMICALLY using PARAMETER 2
         driver.findElement(By.xpath("//div[@id='myCountryautocomplete-list']//div[.='"+textFromList+"']")).click();
+        Thread.sleep(2000);
         //Nothing special. Just clicking on submit button
         driver.findElement(By.xpath("//input[@type='button']")).click();//click on submit button
+        Thread.sleep(2000);
         //Verifying if result contains the option that I selected DYNAMICALLY using PARAMETER 2
         Assert.assertTrue(driver.findElement(By.id("result")).getText().contains(textFromList));
     }
@@ -50,7 +55,7 @@ public abstract class TestBase {
     // TAKE A SCREENSHOT OF ENTIRE PAGE WITH THIS REUSABLE METHOD
     public void takeScreenshotOfPage() throws IOException {
         // 1.Take screenshot using getScreenShotAs() method and TakeScreenshot API-coming from Selenium
-        File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File image = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);// ===>>>We are using OutputType.FILE because screenshots are a file at the end of the day
 
         // 2. Save the screenshot in a path and save with dynamic name
         String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()); //getting  current local date and time with this format
@@ -63,3 +68,13 @@ public abstract class TestBase {
 
 
 }
+/*!!!
+As a Tester What am I doing?
+1. Create manual and automation test cases
+2. Prepare test reports
+    a. Test Execution and Capture screenshots
+    b. Report bugs when and bug is found. Takes screenshot of the bug steps
+3. Run smoke tests and check results. Communicate with the team if any test fails.
+4. Run regression tests etc.
+
+ */

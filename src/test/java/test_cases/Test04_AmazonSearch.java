@@ -2,7 +2,10 @@ package test_cases;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import utilities.TestBase;
 
 import java.util.List;
@@ -22,16 +25,31 @@ public class Test04_AmazonSearch extends TestBase {
 
         Thread.sleep(2000);
         //locate the search box and type “porcelain teapot”
-        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("porcelain teapot");
+       driver.findElement(By.id("twotabsearchtextbox")).sendKeys("porcelain teapot" + Keys.ENTER);
 
-        //Click to magnifying glass
-        driver.findElement(By.id("nav-search-submit-button")).click();
+        // OR Click to magnifying glass
+        //    driver.findElement(By.id("nav-search-submit-button")).click();
 
         Thread.sleep(2000);
         //See how many result are there on the first page only
-        //  List<WebElement> result = driver.findElements(By.xpath("//div[@data-component-type='s-search-result']"));
-        List<WebElement> result = driver.findElements(By.xpath("//div[@data-index]"));
-        System.out.println(result.size());
+        List<WebElement> result = driver.findElements(By.xpath("//div[@class='a-section a-spacing-none a-spacing-top-small s-price-instructions-style']"));
+        System.out.println("Number of Products on the first page : " + result.size());
+
+        //Order the tea pot prices
+        //Locate the dropdown and click
+        Thread.sleep(2000);
+        WebElement dropdown = driver.findElement(By.cssSelector("#a-autoid-39-announce"));
+        dropdown.click();
+        //Hover over and select Price low to high
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(dropdown).perform();
+//        Thread.sleep(1000);
+        driver.findElement(By.linkText("Price: Low to High")).click();
+
+
+
+
+
 
 
     }

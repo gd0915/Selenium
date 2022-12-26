@@ -28,11 +28,16 @@ public class Day10_FileUploadTest extends TestBase {
         WebElement chooseAFileButton = driver.findElement(By.id("file-upload"));
 
         // 2. select a file from your computer
+        //1st Way: Recommended
         String userHOME=System.getProperty("user.home");
         String pathOfFile = userHOME + "\\Downloads\\logo.jpeg";
 
-        //Sending the path of file that I want to upload
-        //We can use sendKeys because of the input type file combination(this is the special case for input type file cases without clicking the button)
+        //2nd way:
+        //String path = System.getProperty("user.home")+ "\\Downloads\\logo.jpeg";
+
+        // Sending the path of file that I want to upload
+        // We can use sendKeys because of the input type file combination
+        // (this is the special case for the upload elements (input type file cases) to upload  file without clicking the button)
         chooseAFileButton.sendKeys(pathOfFile);
 
         // 3. Then locate and click upload
@@ -45,16 +50,15 @@ public class Day10_FileUploadTest extends TestBase {
     }
     /*
     -First selenium has limitation automation of files. But file upload can be done with selenium.
-    We locate the choose file button and use sendKeys function to send the path of the file.
+    We locate the choose file button and use sendKeys function to send the path of the file.(This will automatically upload the file.)
     If there is an upload button we click upload button to upload the file.
-    (This will automatically upload the file.)
-    Path of the file should be dynamic.
+    Path of the file should be dynamic. - use System.getProperty("user.home");
      */
 
     /*
     LIMITATION:
     Selenium has limitation automation DESKTOP APPS
-    For example, we can not find path of files, or verify if file exists on out machines with selenum
-    Instead we use java File libraries
+    For example, we can not find path of files, or verify if file exists on our machines with selenium
+    Instead of selenium we use java File libraries
      */
 }

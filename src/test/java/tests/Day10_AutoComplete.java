@@ -35,7 +35,7 @@ public class Day10_AutoComplete extends TestBase {
 
     }
     @Test
-    public void autoCompleteTestWithReusableMethod(){
+    public void autoCompleteTestWithReusableMethod() throws InterruptedException {
         driver.get("https://testcenter.techproeducation.com/index.php?page=autocomplete");
         searchAndSelectFromList("uni", "United Kingdom");//TEST CASE 1
 
