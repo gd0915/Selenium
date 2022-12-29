@@ -61,11 +61,28 @@ public abstract class TestBase {
         String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()); //getting  current local date and time with this format
 
         //path is where we save the screenshot. PROJECT/ FOLDER(test-output)    / FOLDER     / NAME OF IMAGE   .png(images extension) /
-        String path = System.getProperty("user.dir")+ "/test-output/Screenshots/"+currentTime+".png";//Where we save the image
+        String path = System.getProperty("user.dir")+ "/test-output/Screenshots/"+currentTime+"image.png";//Where we save the image
                         //This is the project               //Folder name          //Current time
 
-        //Saving the IMAGE in the PATH
+        //3. Saving the IMAGE in the PATH
         FileUtils.copyFile(image,new File(path)); //We copy the image in to the path in the second parameter
+    }
+
+    //TAKE A SCREENSHOT OF SPECIFIC ELEMENT
+    public void takeScreenshotOfTheElement(WebElement element) throws IOException {
+        // 1.Take screenshot
+        File image = element.getScreenshotAs(OutputType.FILE);
+
+        // 2. Creating a PATH with dynamic name for the image
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date()); //getting  current local date and time with this format
+
+        //path is where we save the screenshot. PROJECT/ FOLDER(test-output)    / FOLDER     / NAME OF IMAGE   .png(images extension) /
+        String path = System.getProperty("user.dir")+ "/test-output/Screenshots/"+currentTime+"image.png";//Where we save the image
+        //This is the project               //Folder name          //Current time
+
+        //3. Saving the IMAGE in the PATH
+        FileUtils.copyFile(image,new File(path));
+
     }
 
 
