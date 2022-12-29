@@ -17,7 +17,7 @@ public class Day11_ExtentReports extends TestBase {
     protected static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;
     protected static ExtentTest extentTest;
-    //protected static ExtentTest logger; //We can also use logger instead of extentTest but we prefer extentTest
+    //protected static ExtentTest logger; //We can also use logger(not common as extentTest) instead of extentTest but we prefer extentTest
 
     @BeforeClass
     public static void extentReportsSetUp(){
@@ -80,6 +80,21 @@ public class Day11_ExtentReports extends TestBase {
         //extentTest.pass("Asserting the LMS Url");
         Assert.assertEquals("LMS Login page is not displayed",expectedURL, actualURL);
         extentTest.pass("Test is complete");
+
+    }
+
+    @Test
+    public void extentReportsTest2(){
+//      pass is used to mark the step as PASSED
+        extentTest.pass("PASS");
+//      info is used to just give an information for that step
+        extentTest.info("INFO");
+//      fail is used to mark the step as FAILED
+        extentTest.fail("FAILED");
+//      skip is used to mark the step as SKIPPED
+        extentTest.skip("SKIPPED");
+//       warning is used to give warning information
+        extentTest.warning("WARNING");
 
     }
 
