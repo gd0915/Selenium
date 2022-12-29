@@ -39,6 +39,7 @@ public class Day10_ScreenshotsOfEntirePage extends TestBase {
 
         Thread.sleep(2000);
         driver.findElement(By.xpath("//div[@id='myCountryautocomplete-list']//div[.='United Kingdom']")).click();
+       // searchAndSelectFromList("uni", "United Kingdom");
 
 //        TAKE A SCREENSHOT
         takeScreenshotOfPage();
