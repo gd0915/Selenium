@@ -152,9 +152,10 @@ public class Practice13 extends TestBase {
         driver.findElement(By.xpath("//button[@id='submit']")).click();
 
         // 17. Verify success message 'Your order has been placed successfully!'
-        WebElement message = driver.findElement(By.xpath("//p[text()='Congratulations! Your order has been confirmed!']"));
-        String actualMessage = message.getText();
-        Assert.assertEquals("Congratulations! Your order has been confirmed!", actualMessage);
+        driver.findElement(By.xpath("(//div[@class='alert-success alert'])[1]")).isDisplayed();
+//        WebElement message = driver.findElement(By.xpath("//p[text()='Congratulations! Your order has been confirmed!']"));
+//        String actualMessage = message.getText();
+//        Assert.assertEquals("Congratulations! Your order has been confirmed!", actualMessage);
 
         // 18. Click 'Delete Account' button
         driver.findElement(By.xpath("//a[@href='/delete_account']")).click();
@@ -162,3 +163,7 @@ public class Practice13 extends TestBase {
 
     }
 }
+/*
+//To close add
+driver.findElement(By.xpath("//p[text()='Consent']")).click();
+ */
