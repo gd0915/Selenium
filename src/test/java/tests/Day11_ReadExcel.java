@@ -36,40 +36,44 @@ public class Day11_ReadExcel extends TestBase {
 
     @Test
     public void readExcelTest() throws IOException {
-        //  workbook>worksheet>row>cell
-        //Store the path of the  file in a string
+
+        //  workbook > worksheet > row > cell
+
+        //       Store the path of the  file in a string
         String path = "./src/test/java/resources/Capitals.xlsx";//We add "./" (Dot means all ==>> We are ignoring the root of the path) at the beginning of the path
         // (We copied "Path from content root")
 
-        //Open the file
-        FileInputStream fileInputStream = new FileInputStream(path);
+        //        Open the file
+        FileInputStream fileInputStream = new FileInputStream(path); //Where is the file
 
         //Open the workbook using fileinputstream
-        Workbook workbook = WorkbookFactory.create(fileInputStream);
+        Workbook workbook = WorkbookFactory.create(fileInputStream); // Get that excel sheet (workbook ==>> excel itself)
+                                                                     // Sometimes it throws exception, if it is needed, add exception into the method signature
 
         //        Open the first worksheet
         Sheet sheet1 = workbook.getSheet("Sheet1");
         // workbook.getSheetAt(0); //ALTERNATIVELY
         //NOTE: We can use sheet name with getSheet() OR sheet index with getSheetAt()
+        // sheet indexes start at 0. (zero)
 
         //        Go to first row (Those get methods coming from apache.poi library)
-        Row row1 = sheet1.getRow(0); // index starts at Zero (0) going to yhe first row
+        Row row1 = sheet1.getRow(0); // index starts at Zero (0) going to the first row
 
         //        Go to first cell on that first row and print
         Cell cell1 = row1.getCell(0); //index starts at 0. reading the first cell data that is on the first row
         System.out.println(cell1);
+        // NOTE : In cell1 data we can use only apache.poi methods.
 
-        // We can convert the cell data to string
+        //        We can convert the cell data to string
         String cell1Data = cell1.toString();
         System.out.println(cell1Data);
+        //NOTE : The benefit of converting to String is using String methods.
 
         //        Go to second cell on that first row and print
         Cell r1c2 = row1.getCell(1);
         System.out.println("R1C2 : " + r1c2.toString());
 
-        // SHORT WAY CHAINING THE METHODS
-        //row1.getCell(1)
-
+        // SHORT WAY: CHAINING THE METHODS
         //        Go to 2nd row first cell  and assert if the data equal to USA
         String r2c1 = sheet1.getRow(1).getCell(0).toString();
         Assert.assertEquals("USA", r2c1);
