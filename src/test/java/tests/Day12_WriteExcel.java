@@ -34,7 +34,7 @@ public class Day12_WriteExcel extends TestBase {
         String path = "./src/test/java/resources/Capitals.xlsx";
 
         //    Open the workbook
-        FileInputStream fileInputStream = new FileInputStream(path);
+        FileInputStream fileInputStream = new FileInputStream(path); // We use FileInputStream when we read the data
         Workbook workbook = WorkbookFactory.create(fileInputStream);
 
         //    Open the first worksheet
@@ -51,13 +51,16 @@ public class Day12_WriteExcel extends TestBase {
 
         //    Create a cell on the 2nd row 3rd cell(index2), and write 150000
         sheet1.getRow(1).createCell(2).setCellValue("150000");
+
         //    Create a cell on the 3rd row 3rd cell(index2), and write 250000
         sheet1.getRow(2).createCell(2).setCellValue("250000");
+
         //    Create a cell on the 4th row 3rd cell(index2), and write 54000
         sheet1.getRow(3).createCell(2).setCellValue("540000");
+
         //    Write and save the workbook
-        FileOutputStream fileOutputStream = new FileOutputStream(path);
-        workbook.write(fileOutputStream); // It is like flush() in testExtents. FileOutputStream execute the code.
+        FileOutputStream fileOutputStream = new FileOutputStream(path); //We use FileOutputStream when we type something on the Excel sheet.
+        workbook.write(fileOutputStream); // It is like flush() in test extentReports. FileOutputStream execute/finish the code.
 
         //    Close the file
         fileInputStream.close();
@@ -65,6 +68,8 @@ public class Day12_WriteExcel extends TestBase {
 
         //    Close the workbook
         workbook.close();
+
+        //NOTE: We can also add some forms such as font color, font style with selenium.
 
     }
 

@@ -60,10 +60,11 @@ public class Day12_WebTables extends TestBase {
         driver.get("https://the-internet.herokuapp.com/tables");
         //    Task 4 : Print column 5 data in the table body
         List<WebElement> col5Data = driver.findElements(By.xpath("//table[@id='table1']//td[5]"));
-        int colNum= 1;
+        //List<WebElement> col5Data2 = driver.findElements(By.xpath("//table[@id='table1']//tr//td[5]")); //ALTERNATIVELY
+        int rowNum= 1;
         for(WebElement eachData : col5Data){
-            System.out.println("Row " + colNum + " Column 5 => " + eachData.getText());
-            colNum++;
+            System.out.println("Row " + rowNum + " Column 5 => " + eachData.getText());
+            rowNum++;
         }
     }
 

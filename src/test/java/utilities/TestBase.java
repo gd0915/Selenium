@@ -78,7 +78,7 @@ public abstract class TestBase {
 
         //path is where we save the screenshot. PROJECT/ FOLDER(test-output)    / FOLDER     / NAME OF IMAGE   .png(images extension) /
         String path = System.getProperty("user.dir")+ "/test-output/Screenshots/"+currentTime+"image.png";//Where we save the image
-        //This is the project               //Folder name          //Current time
+                        //This is the project               //Folder name          //Current time
 
         //3. Saving the IMAGE in the PATH
         FileUtils.copyFile(image,new File(path));
