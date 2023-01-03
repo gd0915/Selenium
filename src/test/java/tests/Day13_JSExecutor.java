@@ -79,7 +79,14 @@ public class Day13_JSExecutor extends TestBase {
     public void getValue(){
         driver.get("https://www.priceline.com/");
         getValueByJS("hotelDates"); //We are able to get the default value of the Check-in Check-out box
-                                              //This is one of the limitations of the selenium because normally, we cannot get the value of an attribute with selenium
+                                              //This is one of the limitations of the selenium because normally, we cannot get the value of the value attribute(default value) with selenium
+    }
+
+    @Test
+    public void typeInTheInputTest1(){
+        driver.get("https://www.priceline.com/");
+        driver.findElement(By.id("hotelDates")).click();
+        setValueByJS(driver.findElement(By.id("hotelDates")), "21/01/2023 – 11/02/2023");
     }
 
     @Test

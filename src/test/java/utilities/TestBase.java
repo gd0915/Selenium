@@ -27,7 +27,7 @@ public abstract class TestBase {
     @After
     public void tearDown(){
         waitFor(3);
-        //driver.quit();
+       // driver.quit();
     }
 
     //    AUTO COMPLETE REUSABLE METHOD
