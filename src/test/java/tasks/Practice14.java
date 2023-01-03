@@ -7,7 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
-public class Practice_14 extends TestBase {
+public class Practice14 extends TestBase {
     /*
             1. Navigate to url 'http://automationexercise.com'
             2. Verify that home page is visible successfully
@@ -48,4 +48,6 @@ public class Practice_14 extends TestBase {
         Assert.assertTrue(driver.findElement(By.xpath("//*[text()='Cart is empty!']")).isDisplayed());
 
     }
+
+
 }
