@@ -51,10 +51,11 @@ public class Day14_ExplicitWait extends TestBase {
     public void explicitWaitReusable(){
         driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
         driver.findElement(By.xpath("//div[@id='start']//button")).click();
-        WebElement helloElement = waitForClickablility(By.xpath("//div[@id='finish']//h4"), 10);
+        WebElement helloElement = waitForClickability(By.xpath("//div[@id='finish']//h4"), 10);
         Assert.assertEquals("Hello World!", helloElement.getText());
 
     }
+
 
 
 
