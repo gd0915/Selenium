@@ -16,6 +16,9 @@ public class Day13_JSExecutor extends TestBase {
  */
     @Test
     public void scrollIntoViewTest() throws IOException {
+        // scrollIntoView(true) method will automatically understand which direction should to go down/up/right/left depends on the location of the element.
+        // That is why it's a very useful method.
+
         // When user goes to home page
         driver.get("https://www.techproeducation.com");
 
@@ -23,16 +26,20 @@ public class Day13_JSExecutor extends TestBase {
         waitFor(3);
 
         // 1. Create js executor Object
-        JavascriptExecutor js = (JavascriptExecutor)driver;
+        JavascriptExecutor js = (JavascriptExecutor)driver; //We are doing "Down casting", and we imported the library==>>org.openqa.selenium.JavascriptExecutor
 
         waitFor(3);
         // 2. Execute the command
         // scrolling "we offer" element
-        js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("//*[.='we offer']"))); //coming from Selenium
+        js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("//*[.='we offer']"))); //Coming from Selenium
+        //We have js object to execute the Javascript code.
+        //Script – This is the JavaScript that needs to execute.
+        //Arguments – It is the arguments to the script. It’s optional.
         takeScreenshotOfPage();
 
         waitFor(3);
         // scrolling Enroll Free element
+        // if an element is already visible js executor will not move
         //js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.linkText("Home")));
         js.executeScript("arguments[0].scrollIntoView(true);",driver.findElement(By.xpath("//span[.=' Enroll Free ']")));
         takeScreenshotOfPage();
@@ -82,12 +89,12 @@ public class Day13_JSExecutor extends TestBase {
                                               //This is one of the limitations of the selenium because normally, we cannot get the value of the value attribute(default value) with selenium
     }
 
-    @Test
-    public void typeInTheInputTest1(){
-        driver.get("https://www.priceline.com/");
-        driver.findElement(By.id("hotelDates")).click();
-        setValueByJS(driver.findElement(By.id("hotelDates")), "21/01/2023 – 11/02/2023");
-    }
+//    @Test
+//    public void typeInTheInputTest1(){
+//        driver.get("https://www.priceline.com/");
+//        driver.findElement(By.id("hotelDates")).click();
+//        setValueByJS(driver.findElement(By.id("hotelDates")), "21/01/2023 – 11/02/2023");
+//    }
 
     @Test
     public void colorByJSTest(){
@@ -97,3 +104,18 @@ public class Day13_JSExecutor extends TestBase {
     }
 
 }
+/*
+===>>>What is JS Executor?
+    It is an API that is used to execute javascript comments in Selenium
+    JS Executor is coming from Selenium
+===>>>Why we are using javascript executor?
+    We may need js methods to interact with web element, when traditional selenium
+    methods are not enough(such as click, scrolling into specific element,…)
+===>>>What we can do with JS executor?
+    Click. Especially good with clicking hidden element
+    Scroll onto specific elements, scroll the all the way down/up/right/left
+    Type in an input
+    Change the value of an element
+    Hover over
+    Change the color, background color, add border
+ */

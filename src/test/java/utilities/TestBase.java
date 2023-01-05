@@ -126,6 +126,9 @@ public abstract class TestBase {
     Normally we use element.click() method in Selenium
     When there is an issue with click()-hidden, different UI, ...
     Then we can use javascript click that works better
+    First we need to locate the element and use arguments[0].click() to click on the element
+    arguments[0] means click on first argument
+    If we put second element (Button1) arguments[1] click on the second button(Button1)
      */
     public void clickByJS(WebElement element){
         JavascriptExecutor js = (JavascriptExecutor)driver;
@@ -157,7 +160,7 @@ public abstract class TestBase {
         JavascriptExecutor js = (JavascriptExecutor)driver;
         String value=js.executeScript("return document.getElementById('"+idOfElement+"').value").toString();
         System.out.println(value);
-//        How you get the value of an input box?
+//        How you get the (default) value of an input box?
 //        We can js executor.
 //        How?
 //        I can get the element using js executor, and get the value of the element.
