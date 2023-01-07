@@ -106,7 +106,7 @@ public class Day13_JSExecutor extends TestBase {
 }
 /*
 ===>>>What is JS Executor?
-    It is an API that is used to execute javascript comments in Selenium
+    It is an API that is used to execute javascript commands in Selenium
     JS Executor is coming from Selenium
 ===>>>Why we are using javascript executor?
     We may need js methods to interact with web element, when traditional selenium
