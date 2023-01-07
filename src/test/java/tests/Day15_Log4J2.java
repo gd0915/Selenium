@@ -26,13 +26,22 @@ public class Day15_Log4J2 extends TestBase {
 
 
         // 2. Use logger object to log/print info
-            logger.fatal("Fatal Log !!!");
-            logger.error("Error Log !!!");
-            logger.warn("Warning Log !!!");
+            logger.fatal("Fatal Log !!!"); //PRINTS BY DEFAULT
+            logger.error("Error Log !!!"); //PRINTS BY DEFAULT
+            logger.warn("Warning Log !!!"); //to see the result we can do a configuration file==>> we added xml file to change the default behaviour
             logger.debug("Debug Log !!!");
             logger.info("Info Log !!!");
+
+            //<Root level="info">     ==>> We just change the error ==>> to info or trace
 
         // 3. Check the console for logs. By default logger logs error or fatal
 
     }
 }
+/*
+For more info:
+https://logging.apache.org/log4j/2.x/manual/configuration.html
+
+Custom Log Levels
+https://logging.apache.org/log4j/2.x/manual/customloglevels.html
+ */

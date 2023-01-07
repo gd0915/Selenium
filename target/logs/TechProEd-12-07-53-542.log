@@ -1,0 +1,5 @@
+2023-01-07 12:07:53,535 FATAL t.l.Day15_LogTests [main] FATAL
+2023-01-07 12:07:53,544 ERROR t.l.Day15_LogTests [main] ERROR
+2023-01-07 12:07:53,544 WARN t.l.Day15_LogTests [main] WARNING
+2023-01-07 12:07:53,544 DEBUG t.l.Day15_LogTests [main] DEBUG
+2023-01-07 12:07:53,544 INFO t.l.Day15_LogTests [main] INFO

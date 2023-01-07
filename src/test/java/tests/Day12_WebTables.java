@@ -1,5 +1,7 @@
 package tests;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -20,19 +22,25 @@ public class Day12_WebTables extends TestBase {
     Parameter 2 = column number
     printData(2,3);  => prints data in 2nd row 3rd column
      */
+    private static Logger logger = LogManager.getLogger(Day12_WebTables.class.getName());
 
     @Test
     public void printTableData(){
+        logger.info("Going to the home page");
         driver.get("https://the-internet.herokuapp.com/tables");
 
         //Task 1 : Print the entire table
         System.out.println("PRINT ENTIRE TABLE***");
+        logger.info("Printing the WebTable information");
+
         String entireTable = driver.findElement(By.xpath("//table[@id='table1']")).getText();
         System.out.println(entireTable);
+        logger.info(entireTable);
 
         List<WebElement> allTableElements = driver.findElements(By.xpath("//table[@id='table1']//td"));
         for (WebElement eachElement : allTableElements){
             System.out.println(eachElement.getText());
+            logger.info(eachElement.getText());
         }
     }
 
