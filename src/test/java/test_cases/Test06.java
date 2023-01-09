@@ -3,9 +3,11 @@ package test_cases;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class Test06 extends TestBase {
         List<WebElement> allTableElements = driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//td[@data-handler='selectDay']"));
         System.out.println(allTableElements.size());
 
+        //1st way:
         String currentDate = new SimpleDateFormat("d").format(new Date());
         System.out.println(currentDate);
 
@@ -36,6 +39,18 @@ public class Test06 extends TestBase {
                 allTableElements.get(i+1).click();
             }
         }
+
+        //2nd way:
+
+        WebElement date = driver.findElement(By.id("datepicker"));
+        Actions actions = new Actions(driver);
+        actions.click(date);
+        LocalDate currentDate1 = LocalDate.now();
+        System.out.println(currentDate);
+
+        String nextDate = currentDate1.plusDays(1).toString();
+        date.sendKeys(nextDate);
+
 
     }
 

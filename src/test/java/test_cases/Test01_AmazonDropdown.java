@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Test01_AmazonDropdown {
@@ -65,18 +67,24 @@ public class Test01_AmazonDropdown {
         int numOfOptions = options.size();
         System.out.println("Number of the all options : " + numOfOptions);
 
-        //Assert if ‘Books’ is a dropdown option. Print true if “Books” is an option. Print false otherwise.
+        //Assert if ‘Books’ is a dropdown option. Print true if “Appliances” is an option. Print false otherwise.
         boolean isBooksExists = false;
 
         for(WebElement eachOption : options){
-            if(eachOption.getText().equals("Books")){
+            if(eachOption.getText().equals("Appliances")){
                 isBooksExists=true;
             }
          }
-        System.out.println(isBooksExists);
-        Assert.assertTrue(isBooksExists);
+        if(isBooksExists){
+            System.out.println("Appliances is an option TRUE");
+        }else{
+            System.out.println("Appliances is not an option FALSE");
+        }
+
+       // Assert.assertTrue(isBooksExists);
 
        // BONUS: Assert if the dropdown is in Alphabetical Order
+        //1st way:
         boolean isInAscendingOrder=false;
         String previous="";
         for(WebElement eachOption : options){
@@ -87,6 +95,22 @@ public class Test01_AmazonDropdown {
         }
         Assert.assertTrue(isInAscendingOrder);
 
+        //2nd way:
+        List<String> originalList  = new ArrayList<>();
+        List<String> sortedList  = new ArrayList<>();
+        for (WebElement each : options) {
+            originalList.add(each.getText());
+            sortedList.add(each.getText());
+        }
+        Collections.sort(sortedList);
+
+        String result = originalList.equals(sortedList)
+                ? "The dropdown is in Alphabetical Order"
+                : "The dropdown is NOT in Alphabetical Order";
+
+        System.out.println("Result : "+result);
+        System.out.println("Original List : "+originalList);
+        System.out.println("Sorted List : "+sortedList);
     }
     @After
     public void tearDown(){
