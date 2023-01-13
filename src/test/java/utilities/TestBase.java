@@ -26,13 +26,14 @@ public abstract class TestBase {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));//15 seconds wait in case needed
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         driver.manage().window().maximize();
     }
 
     @After
     public void tearDown(){
         waitFor(3);
-       // driver.quit();
+        driver.quit();
     }
 
     //    AUTO COMPLETE REUSABLE METHOD
